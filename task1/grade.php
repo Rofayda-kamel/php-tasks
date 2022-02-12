@@ -13,21 +13,25 @@ if ($_POST) {
 
     if ($subject1 <= 50 && $subject2 <= 50 && $subject3 <= 50 && $subject4 <= 50 && $subject5 <= 50) {
         $percentage =  (($subject1 + $subject2 + $subject3 + $subject4 + $subject5) / 250) * 100;
-    }
-    if ($percentage >= 0.9 * 100) {
-        $grade = 'A';
-    } elseif ($percentage >= 0.8 * 100) {
-        $grade = 'B';
-    } elseif ($percentage >= 0.7 * 100) {
-        $grade = 'C';
-    } elseif ($percentage >= 0.6 * 100) {
-        $grade = 'D';
-    } elseif ($percentage >= 0.4 * 100) {
-        $grade = 'E';
-    } elseif ($percentage < 0.4 * 100) {
-        $grade = 'F';
+
+        if ($percentage >= 0.9 * 100) {
+            $grade = 'A';
+        } elseif ($percentage >= 0.8 * 100) {
+            $grade = 'B';
+        } elseif ($percentage >= 0.7 * 100) {
+            $grade = 'C';
+        } elseif ($percentage >= 0.6 * 100) {
+            $grade = 'D';
+        } elseif ($percentage >= 0.4 * 100) {
+            $grade = 'E';
+        } elseif ($percentage < 0.4 * 100) {
+            $grade = 'F';
+        } else {
+            $grade = 'Not Accepted grade';
+        }
     } else {
-        $grade = 'Not Accepted grade';
+        $percentage = "Other result it is greater than 100";
+        $grade = " Not found";
     }
 }
 

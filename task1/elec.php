@@ -17,7 +17,7 @@ if ($_POST) {
         $cost_with_vat = $cost * 0.2;
         $cost_After_Vat = ($cost_with_vat + $cost ). ' EGP';
 
-    } elseif ($unit >= 51 && $unit <= 151) {
+    } elseif ($unit >= 51 && $unit < 151) {
         $cost = $unit * 0.75;
         $cost_with_vat = $cost * 0.2;
         $cost_After_Vat = ($cost_with_vat + $cost ). ' EGP';
