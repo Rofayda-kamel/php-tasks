@@ -12,7 +12,7 @@ if ($_POST) {
     $subject5 = $_POST['mark5'];
 
     if ($subject1 <= 50 && $subject2 <= 50 && $subject3 <= 50 && $subject4 <= 50 && $subject5 <= 50) {
-        $percentage =  (($subject1 + $subject2 + $subject3 + $subject4 + $subject5) / 250) * 100;
+        $percentage =  (($subject1 + $subject2 + $subject3 + $subject4 + $subject5) / 250) * 100 ."%";
 
         if ($percentage >= 0.9 * 100) {
             $grade = 'A';
@@ -30,7 +30,7 @@ if ($_POST) {
             $grade = 'Not Accepted grade';
         }
     } else {
-        $percentage = "Other result it is greater than 100";
+        $percentage = "Other result selected degree is greater than 50";
         $grade = " Not found";
     }
 }
@@ -91,7 +91,7 @@ if ($_POST) {
                 <?php
 
                 if (isset($percentage, $grade)) {
-                    echo "<div class='alert alert-success'> percentege is : $percentage% </div>";
+                    echo "<div class='alert alert-success'> percentege is : $percentage  </div>";
                     echo "<div class='alert alert-success'>  Grade is :  $grade </div>";
                 }
                 ?>
