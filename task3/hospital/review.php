@@ -37,32 +37,12 @@
                                 <th>Excellent</th>
 
 
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Are you satisfied with the level of cleanliness ?</td>
-                                <td>
-                                    <div class="form-check ">
-                                        <input class="form-check-input" type="radio" name="" id="" value="0">
-
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check ">
-                                        <input class="form-check-input" type="radio" name="" id="" value="1">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check ">
-                                        <input class="form-check-input" type="radio" name="" id="" value="2">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check ">
-                                        <input class="form-check-input" type="radio" name="" id="" value="3">
-                                    </div>
-                                </td>
 
                             </tr>
                             <tr>
@@ -80,10 +60,10 @@
                             </tr>
 
                         </tbody>
-
+                    </table>
                 </div>
 
-                
+
             </div>
         </form>
     </div>

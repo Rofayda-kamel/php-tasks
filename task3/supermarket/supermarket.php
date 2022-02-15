@@ -4,13 +4,16 @@ if ($_POST) {
 
     $name = $_POST['name'];
     $city = $_POST['city'];
-    $variety = [$_POST['variety']];
-    $product = $_POST['product'];
-    $quantity = $_POST['quant'];
-    $price = $_POST['price'];
+    $variety = $_POST['variety'];
+
 
     if ($city == 'Cairo') {
-       
+
+        $product = $_POST['product'];
+        $price = $_POST['price'];
+        $quantity = $_POST['quant'];
+
+
         if ($total < 1000) {
             $discount = 0;
         } elseif ($total >= 1000 && $total < 3000) {
@@ -26,8 +29,8 @@ if ($_POST) {
         $Discount = $total * $discount;
         $total_after_dic = $total - $Discount;
         $Net_total = $total_after_dic + $delivery_fees;
-
     } else if ($city == 'Giza') {
+
 
         if ($total < 1000) {
             $discount = 0;
@@ -46,7 +49,7 @@ if ($_POST) {
         $Net_total = $total_after_dic + $delivery_fees;
     } else if ($city == 'Alex') {
 
-         if ($total < 1000) {
+        if ($total < 1000) {
             $discount = 0;
         } elseif ($total >= 1000 && $total < 3000) {
             $discount = 0.1;
@@ -63,7 +66,7 @@ if ($_POST) {
         $Net_total = $total_after_dic + $delivery_fees;
     } else if ($city == 'Other') {
 
-            if ($total < 1000) {
+        if ($total < 1000) {
             $discount = 0;
         } elseif ($total >= 1000 && $total < 3000) {
             $discount = 0.1;
@@ -114,88 +117,151 @@ if ($_POST) {
                 <h2 class="text-primary text-center h1 mb-5"> SUPERMARKET</h2>
             </div>
 
-            <div class=" offset-2 col-8">
+            <div class=" offset-3 col-7">
                 <form method="post">
                     <div class="form-group  text-danger ">
                         <label for="name">User name</label>
-                        <input type="text" name="name" id="name" value="<?php ?>" class="form-control" placeholder="" aria-describedby="helpId">
+                        <input type="text" name="name" id="name" value="<?php if (isset($name)) {
+                                                                            echo $name;
+                                                                        } ?>" class="form-control" placeholder="" aria-describedby="helpId">
                     </div>
 
 
                     <div class="form-group text-danger">
                         <label for="city">City</label>
-                        <select class="form-control" name="city" id="">
+                        <select class="form-control" name="city" id="" value="">
                             <option value="-1"></option>
-                            <option value="one">Cairo</option>
-                            <option value="two">Giza</option>
-                            <option value="three">Alex</option>
-                            <option value="four">Other</option>
+                            <option value="<?php if (isset($city)) {
+                                                echo $city;
+                                            } ?> ">Cairo</option>
+                            <option value="<?php if (isset($city)) {
+                                                echo $city;
+                                            } ?>">Giza</option>
+                            <option value="<?php if (isset($city)) {
+                                                echo $city;
+                                            } ?>">Alex</option>
+                            <option value="<?php if (isset($city)) {
+                                                echo $city;
+                                            } ?>">Other</option>
                         </select>
                     </div>
 
                     <div class="form-group  text-danger ">
                         <label for="variety">Number of varieties</label>
-                        <input type="number" name="variety" id="variety" value="<?php  ?>" class="form-control" placeholder="" aria-describedby="helpId">
+                        <input type="number" name="variety" id="variety" value="<?php if (isset($variety)) {
+                                                                                    echo $variety;
+                                                                                } ?>" class="form-control" placeholder="" aria-describedby="helpId">
                     </div>
 
-                    <div class="form-group text-center">
+                    <div class="form-group text-center ">
                         <button name="output" class="btn btn-outline-primary rounded"> Enter products</button>
 
                     </div>
                 </form>
 
-                <?php
-
-                if ($variety > 0) {
-                ?>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class=" col-4">
-                                <form method="post">
-                                    <div class="form-group  text-dark">
-                                        <label for="product">Product name</label>
-                                        <?php
-                                        foreach ($variety as $value) { ?>
-                                            <input type="text" name="product" id="product" value="<?php $value ?>" class="form-control" placeholder="" aria-describedby="helpId">
-
-
-                                        <?php }
-
-                                        ?>
-
-                                    </div>
-                                </form>
-                            </div>
-                            <div class=" col-4">
-                                <form method="post">
-                                    <div class="form-group  text-dark ">
-                                        <label for="price">Price</label>
-                                        <input type="number" name="price" id="price" value="<?php ?>" class="form-control" placeholder="" aria-describedby="helpId">
-
-                                    </div>
-
-                                </form>
-                            </div>
-                            <div class=" col-4">
-                                <form method="post">
-                                    <div class="form-group  text-dark ">
-                                        <label for="quant">Quantities</label>
-                                        <input type="number" name="quant" id="quant" value="<?php ?>" class="form-control" placeholder="" aria-describedby="helpId">
-
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php
-                }
-                ?>
             </div>
         </div>
     </div>
+    <?php
+
+    if ($variety > 0) {
+    ?>
+
+        <div class="container">
+            <div class="row">
+
+
+                <div class="offset-2 col-3">
+                    <form method="post">
+                        <div class="form-group  text-dark">
+                            <label for="product">Product name</label>
+                            <?php
+                            for ($i = 0; $i < $variety; $i++) { ?>
+                                <input type="text" name="product" id="product" value="<?php ?>" class="form-control" placeholder="" aria-describedby="helpId">
+
+
+                            <?php }
+
+                            ?>
+
+                        </div>
+                    </form>
+                </div>
+                <div class=" col-3">
+                    <form method="post">
+                        <div class="form-group  text-dark ">
+                            <label for="price">Price</label>
+                            <?php
+                            for ($i = 0; $i < $variety; $i++) { ?>
+
+                                <input type="number" name="price" id="price" value="<?php ?>" class="form-control" placeholder="" aria-describedby="helpId">
+
+                            <?php }
+
+                            ?>
+
+                        </div>
+
+                    </form>
+                </div>
+                <div class=" col-3">
+                    <form method="post">
+                        <div class="form-group  text-dark ">
+                            <label for="quant">Quantities</label>
+                            <?php
+                            for ($i = 0; $i < $variety; $i++) { ?>
+
+                                <input type="number" name="quant" id="quant" value="<?php ?>" class="form-control" placeholder="" aria-describedby="helpId">
+
+                            <?php }
+
+                            ?>
+
+
+                        </div>
+
+                    </form>
+                </div>
+                <div class="offset-4 col-5">
+                    <form method="post">
+                        <div class="form-group text-center">
+                            <button name="output" class="btn btn-outline-primary rounded"> Receipt </button>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    <?php
+    }
+    ?>
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-3">
+                <form method="post">
+                    <div class="form-group  text-dark">
+                        <label for="sub">subtotal</label>
+                        <?php
+                        for ($i = 0; $i < $variety; $i++) { ?>
+                            <input type="number" name="product" id="product" value="<?php ?>" class="form-control" placeholder="" aria-describedby="helpId">
+
+
+                        <?php }
+
+                        ?>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+     </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
