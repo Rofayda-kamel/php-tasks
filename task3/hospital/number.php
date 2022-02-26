@@ -1,6 +1,6 @@
 <?php
 
-
+$num= $_POST['num']
 
 
 
@@ -30,7 +30,7 @@
                     <div class="form-group text-primary  ">
                        
                         <input type="text" name="phone" id="phone"   class="form-control mb-2" placeholder="Phone Number" disabled aria-describedby="helpId">
-                        <input type="number" name="num" id="num"  class="form-control" placeholder="" aria-describedby="helpId">
+                        <input type="number" name="num" id="num" value="<?php $num?>" class="form-control" placeholder="" aria-describedby="helpId">
                    
                     </div>
                     

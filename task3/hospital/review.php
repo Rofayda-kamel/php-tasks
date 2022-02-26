@@ -1,4 +1,72 @@
 <?php
+if (isset($_POST['enter'])) {
+
+    $one = $_POST['one'];
+    $two = $_POST['two'];
+    $three = $_POST['three'];
+    $four = $_POST['four'];
+    $five = $_POST['five'];
+    if ($one == 'bad') {
+        $one = 0;
+    } elseif ($one == 'good') {
+        $one = 3;
+    } elseif ($one == 'very good') {
+        $one = 5;
+    } elseif ($one == 'excellent') {
+        $one = 10;
+    }
+    // echo $one;
+
+    if ($two == 'bad') {
+        $two = 0;
+    } elseif ($two == 'good') {
+        $two = 3;
+    } elseif ($two == 'very good') {
+        $two = 5;
+    } elseif ($two == 'excellent') {
+        $two = 10;
+    }
+    // echo $two;
+    if ($three == 'bad') {
+        $three = 0;
+    } elseif ($two == 'good') {
+        $three = 3;
+    } elseif ($three == 'very good') {
+        $three = 5;
+    } elseif ($three == 'excellent') {
+        $three = 10;
+    }
+    // echo $three;
+
+    if ($four == 'bad') {
+        $four = 0;
+    } elseif ($four == 'good') {
+        $four = 3;
+    } elseif ($four == 'very good') {
+        $four = 5;
+    } elseif ($four == 'excellent') {
+        $four = 10;
+    }
+    // echo $four;
+    if ($five == 'bad') {
+        $five = 0;
+    } elseif ($five == 'good') {
+        $five = 3;
+    } elseif ($five == 'very good') {
+        $five = 5;
+    } elseif ($five == 'excellent') {
+        $five = 10;
+    }
+    // echo $five;
+
+
+    function sum($one, $two, $three, $four, $five)
+    {
+        return $sum = $one + $two + $three + $four + $five;
+    }
+    print_r(sum($one, $two, $three, $four, $five));
+
+}
 
 
 
@@ -43,27 +111,92 @@
                         <tbody>
                             <tr>
                                 <td>Are you satisfied with the level of cleanliness ?</td>
+                                <td><input type="radio" name="one" value="bad" <?php if (isset($_POST['one'])) {
+                                                                                    $one = 0;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="two" value="good" <?php if (isset($_POST['two'])) {
+                                                                                    $two = 3;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="three" value="very good" <?php if (isset($_POST['three'])) {
+                                                                                            $three = 5;
+                                                                                        }  ?>></td>
+                                <td><input type="radio" name="four" value="excellent" <?php if (isset($_POST['four'])) {
+                                                                                            $four = 10;
+                                                                                        }  ?>></td>
 
                             </tr>
                             <tr>
                                 <td>Are you satisfied with the service prices ?</td>
-
+                               <td><input type="radio" name="one" value="bad" <?php if (isset($_POST['one'])) {
+                                                                                    $one = 0;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="two" value="good" <?php if (isset($_POST['two'])) {
+                                                                                    $two = 3;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="three" value="very good" <?php if (isset($_POST['three'])) {
+                                                                                            $three = 5;
+                                                                                        }  ?>></td>
+                                <td><input type="radio" name="four" value="excellent" <?php if (isset($_POST['four'])) {
+                                                                                            $four = 10;
+                                                                                        }  ?>></td>
                             </tr>
                             <tr>
                                 <td>Are you satisfied with the nursing service ?</td>
+                                <td><input type="radio" name="one" value="bad" <?php if (isset($_POST['one'])) {
+                                                                                    $one = 0;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="two" value="good" <?php if (isset($_POST['two'])) {
+                                                                                    $two = 3;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="three" value="very good" <?php if (isset($_POST['three'])) {
+                                                                                            $three = 5;
+                                                                                        }  ?>></td>
+                                <td><input type="radio" name="four" value="excellent" <?php if (isset($_POST['four'])) {
+                                                                                            $four = 10;
+                                                                                        }  ?>></td>
                             </tr>
                             <tr>
                                 <td>Are you satisfied with the level of the doctor?</td>
+                                <td><input type="radio" name="one" value="bad" <?php if (isset($_POST['one'])) {
+                                                                                    $one = 0;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="two" value="good" <?php if (isset($_POST['two'])) {
+                                                                                    $two = 3;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="three" value="very good" <?php if (isset($_POST['three'])) {
+                                                                                            $three = 5;
+                                                                                        }  ?>></td>
+                                <td><input type="radio" name="four" value="excellent" <?php if (isset($_POST['four'])) {
+                                                                                            $four = 10;
+                                                                                        }  ?>></td>
                             </tr>
                             <tr>
                                 <td>Are you satisfied with the calmness in the hospital?</td>
+                               <td><input type="radio" name="one" value="bad" <?php if (isset($_POST['one'])) {
+                                                                                    $one = 0;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="two" value="good" <?php if (isset($_POST['two'])) {
+                                                                                    $two = 3;
+                                                                                }  ?>></td>
+                                <td><input type="radio" name="three" value="very good" <?php if (isset($_POST['three'])) {
+                                                                                            $three = 5;
+                                                                                        }  ?>> </td>
+                                <td><input type="radio" name="four" value="excellent" <?php if (isset($_POST['four'])) {
+                                                                                            $four = 10;
+                                                                                        }  ?>></td>
                             </tr>
-
+                            
                         </tbody>
                     </table>
                 </div>
 
 
+            </div>
+
+            <div class="form-group ">
+              
+              <input type="submit" name="" id="" value="enter" class="form-control" placeholder="" aria-describedby="helpId">
+              
             </div>
         </form>
     </div>
